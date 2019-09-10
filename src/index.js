@@ -9,6 +9,7 @@ import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
+  const [storage, setStorage] =useState('');
   useEffect(() => {
     axios
       .get(
@@ -16,13 +17,8 @@ const App = () => {
       )
       .then(res => setCoinData(res.data))
       .catch(err => console.log(err));
-
-    // if (window.localStorage.getItem("dark") === 'true') {
-    //   setModeView(true)
-    // } else {
-    //   setModeView(false);
-    // }
   }, []);
+  
   return (
     <div className='App'>
       <Navbar />
